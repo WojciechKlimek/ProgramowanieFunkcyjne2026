@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -Wall #-} -- włączamy ostrzeżenia kompilatora
 
+myFun :: Num a => a -> a
 myFun x = 2 * x -- (!)
 
 add2T :: Num a => (a, a) -> a
@@ -12,3 +13,9 @@ add3C :: Num a => a -> a -> a -> a
 add3C x y z = x + y + z
 -- add3C 1 2 3
 -- ((add3C 1) 2) 3
+
+curry' :: ((a, b) -> c) -> a -> b -> c
+curry' f x y = f (x, y)
+
+uncurry' :: (a -> b -> c) -> (a, b) -> c
+uncurry' f (x, y) = f x y
